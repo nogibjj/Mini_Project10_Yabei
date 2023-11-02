@@ -14,9 +14,9 @@ def run_data_analysis():
     data_file_path = "data/cars.csv"
     car_data = read_dataset(spark, data_file_path)
 
-    transform_data = transform_origin(car_data)
+    transformed_data = transform_origin(car_data)
 
-    categorized_data.createOrReplaceTempView("car_data_view")
+    transformed_data.createOrReplaceTempView("car_data_view")
     query_result = spark.sql("""
         SELECT RegionCategory, COUNT(*) AS TotalCars
         FROM car_data_view
