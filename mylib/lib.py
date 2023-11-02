@@ -39,10 +39,10 @@ def transform_origin(dataset):
         (col("ManufactureRegion") == "Japan")
     ]
     origin_categories = ["Domestic", "European", "Japanese"]
-    categorized_dataset = dataset.withColumn("RegionCategory", when(
+    transformed_dataset = dataset.withColumn("RegionCategory", when(
         origin_conditions[0], origin_categories[0]
         ).when(origin_conditions[1], origin_categories[1]
         ).when(origin_conditions[2], origin_categories[2]
         ).otherwise("Imported"))
-    append_to_report("Data Categorization", categorized_dataset.limit(10).toPandas().to_markdown())
-    return categorized_dataset
+    append_to_report("Data Categorization", transformed_dataset.limit(10).toPandas().to_markdown())
+    return transformed_dataset
