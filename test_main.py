@@ -8,6 +8,7 @@ from mylib.lib import (
     transform_origin,
 )
 
+
 @pytest.fixture(scope="session")
 def spark_session():
 
@@ -15,10 +16,12 @@ def spark_session():
     yield session
     session.stop()
 
+
 def test_data_loading(spark_session):
-    data_path = "data/cars.csv" 
+    data_path = "data/cars.csv"
     car_df = read_dataset(spark_session, data_path)
     assert car_df is not None and car_df.count() > 0
+
 
 def test_data_transform(spark_session):
     car_df = read_dataset(spark_session, "data/cars.csv")
@@ -26,10 +29,12 @@ def test_data_transform(spark_session):
     assert transformed_car_df is not None
     assert "RegionCategory" in transformed_car_df.columns
 
+
 def run_tests():
     session = spark_session()
     test_data_loading(session)
     test_data_transform(session)
+
 
 if __name__ == "__main__":
     run_tests()
