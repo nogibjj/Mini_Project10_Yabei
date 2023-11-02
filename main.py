@@ -4,7 +4,7 @@ Main application entry point for PySpark data processing
 from mylib.lib import (
     initiate_spark_session,
     read_dataset,
-    categorize_origin,
+    transform_origin,
     append_to_report
 )
 
