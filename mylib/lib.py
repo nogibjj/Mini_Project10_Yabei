@@ -32,7 +32,7 @@ def read_dataset(spark, dataset_path):
     append_to_report("Data Loading", dataset.limit(10).toPandas().to_markdown())
     return dataset
 
-def categorize_origin(dataset):
+def transform_origin(dataset):
     origin_conditions = [
         (col("ManufactureRegion") == "US"),
         (col("ManufactureRegion") == "Europe"),
