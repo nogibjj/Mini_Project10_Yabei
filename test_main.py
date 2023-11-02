@@ -24,9 +24,9 @@ def test_data_loading(spark_session):
 
 def test_data_transform(spark_session):
     car_df = read_dataset(spark_session, "data/cars.csv")
-    categorized_car_df = transform_origin(car_df)
-    assert categorized_car_df is not None
-    assert "RegionCategory" in categorized_car_df.columns
+    transformed_car_df = transform_origin(car_df)
+    assert transformed_car_df is not None
+    assert "RegionCategory" in transformed_car_df.columns
 
 def run_tests():
     session = spark_session()
