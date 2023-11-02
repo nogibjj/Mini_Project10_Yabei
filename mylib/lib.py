@@ -1,6 +1,11 @@
 from pyspark.sql import SparkSession
 from pyspark.sql.functions import col, when
-from pyspark.sql.types import StructType, StructField, FloatType, IntegerType, StringType
+from pyspark.sql.types import (
+    StructType, 
+    StructField, 
+    FloatType, 
+    IntegerType, 
+    StringType)
 
 REPORT_FILE = "analysis_report.md"
 

@@ -25,7 +25,8 @@ def run_data_analysis():
     """)
 
     query_result.show()
-    append_to_report("Spark SQL Query Result", query_result.limit(10).toPandas().to_markdown())
+    append_to_report("Spark SQL Query Result", 
+                     query_result.limit(10).toPandas().to_markdown())
 
     # query_result.write.format("csv").save("output/query_result.csv")
 

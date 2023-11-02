@@ -1,13 +1,11 @@
 """
 PySpark Application Test Suite for Car Data
 """
-import os
 import pytest
 from mylib.lib import (
     initiate_spark_session,
     read_dataset,
     transform_origin,
-    append_to_report,
 )
 
 @pytest.fixture(scope="session")
