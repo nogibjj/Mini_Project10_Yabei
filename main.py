@@ -14,7 +14,7 @@ def run_data_analysis():
     data_file_path = "data/cars.csv"
     car_data = read_dataset(spark, data_file_path)
 
-    categorized_data = categorize_origin(car_data)
+    transform_data = transform_origin(car_data)
 
     categorized_data.createOrReplaceTempView("car_data_view")
     query_result = spark.sql("""
