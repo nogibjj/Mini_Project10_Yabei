@@ -49,5 +49,6 @@ def transform_origin(dataset):
         ).when(origin_conditions[1], origin_categories[1]
         ).when(origin_conditions[2], origin_categories[2]
         ).otherwise("Imported"))
-    append_to_report("Data Transformation", transformed_dataset.limit(10).toPandas().to_markdown())
+    append_to_report("Data Transformation", 
+                     transformed_dataset.limit(10).toPandas().to_markdown())
     return transformed_dataset
