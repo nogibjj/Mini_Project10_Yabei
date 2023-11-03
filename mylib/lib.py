@@ -23,18 +23,19 @@ def initiate_spark_session(app_title):
 
 def read_dataset(spark, dataset_path):
     car_schema = StructType([
-        StructField("Model", StringType(), True),
-        StructField("FuelEfficiency", FloatType(), True),
-        StructField("EngineCyl", IntegerType(), True),
-        StructField("EngineDisp", FloatType(), True),
-        StructField("Power", FloatType(), True),
-        StructField("CarWeight", FloatType(), True),
-        StructField("ZeroToSixty", FloatType(), True),
-        StructField("YearModel", IntegerType(), True),
-        StructField("ManufactureRegion", StringType(), True)
+        StructField("Car", StringType(), True),  
+        StructField("MPG", FloatType(), True),  
+        StructField("Cylinders", IntegerType(), True),  
+        StructField("Displacement", FloatType(), True),  
+        StructField("Horsepower", FloatType(), True),  
+        StructField("Weight", FloatType(), True), 
+        StructField("Acceleration", FloatType(), True), 
+        StructField("Model", IntegerType(), True),  
+        StructField("Origin", StringType(), True),  
     ])
-    dataset = spark.read.option("header", "true").schema(car_schema).csv(dataset_path)
-    append_to_report("Data Loading", dataset.limit(10).toPandas().to_markdown())
+    dataset = spark.read.option("header", "true").option("sep", ";").schema(car_schema).csv(dataset_path)
+    # Replace 'append_to_report' with the actual function you use to log or append to a report
+    append_to_report("Data Loading", dataset.limit(10).toPandas().to_markdown()) 
     return dataset
 
 def transform_origin(dataset):
