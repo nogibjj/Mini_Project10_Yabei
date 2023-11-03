@@ -38,6 +38,10 @@ def read_dataset(spark, dataset_path):
     append_to_report("Data Loading", dataset.limit(10).toPandas().to_markdown()) 
     return dataset
 
+def describe(dataset):
+    description = dataset.describe().toPandas()
+    return description
+
 def transform_origin(dataset):
     origin_conditions = [
         (col("Origin") == "US"),
