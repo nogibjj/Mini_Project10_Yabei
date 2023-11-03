@@ -41,7 +41,8 @@ To set up your environment to run this PySpark script, follow these steps:
    ```
 5. Formating
    ```bash
-   make format```
+   make format
+   ```
 
 ## Output
 
