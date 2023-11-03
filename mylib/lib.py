@@ -39,7 +39,8 @@ def read_dataset(spark, dataset_path):
     return dataset
 
 def describe(dataset):
-    description = dataset.describe().toPandas()
+    description = dataset.describe().toPandas().to_markdown()
+    append_to_report("Data Description", description)
     return description
 
 def transform_origin(dataset):
