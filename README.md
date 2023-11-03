@@ -1,37 +1,50 @@
-[![CI](https://github.com/nogibjj/python-ruff-template/actions/workflows/cicd.yml/badge.svg)](https://github.com/nogibjj/python-ruff-template/actions/workflows/cicd.yml)
+[![CI](https://github.com/nogibjj/Mini_Project10_Yabei/actions/workflows/cicd.yml/badge.svg)](https://github.com/nogibjj/Mini_Project10_Yabei/actions/workflows/cicd.yml)
 # Mini Project 10
 
-![1 15_rust_built_python_tools](https://github.com/nogibjj/python-ruff-template/assets/58792/db5f7bda-a977-4c67-acbe-a70fe034fbdf)
+## Overview
+
+This project utilizes PySpark to perform data processing on a dataset of car attributes. The main objective is to analyze the car dataset to uncover insights into fuel efficiency, engine characteristics, and more, by applying various transformations and Spark SQL queries.
+
+## Dataset
+
+The dataset contains various car attributes including MPG (miles per gallon), cylinders, displacement, horsepower, weight, acceleration, model year, and origin. It is structured in a semicolon-separated values (SSV) format and includes historical data for car models.
+
+## Features
+
+- **Data Loading:** Load data into a Spark DataFrame with the appropriate schema.
+- **Data Description**: Calculate the dataset statistics, including mean, median, and standard deviation.
+- **Data Transformation:** Apply data transformation to clean and prepare the data for analysis.
+- **Spark SQL Query:** Use Spark SQL to perform structured queries on the data.
+- **Data Summary Report:** Generate a summary report in markdown that highlights the above data manipulation.
 
 
+## Preparation:
 
-1. First thing to do on launch is to open a new shell and verify virtualenv is sourced.
+To set up your environment to run this PySpark script, follow these steps:
 
-Things included are:
+1. Install the packages:
+   ```bash
+   make install
+   ```
 
-* `Makefile`
+2. Running the Script
+   ```bash
+   python main.py
+   ```
+3. Linting
+   ```bash
+   make lint
+   ```
+4. Testing
+   ```bash
+   make test
+   ```
+5. Formating
+   ```bash
+   make format```
 
-* `Pytest`
+## Output
 
-* `pandas`
+The script outputs a markdown report summarizing the insights from the data. This report includes the results of Spark SQL queries and data transformation steps, as well as any additional findings from the analysis.
 
-* `Ruff`:  
-
-Run `make lint` which runs `ruff check`.  You can find out more info on [Ruff here](https://github.com/astral-sh/ruff).
-
-* `Dockerfile`
-
-* `GitHub copilot`
-
-* `jupyter` and `ipython` 
-
-* A base set of libraries for devops and web
-
-* `githubactions`
-
-## References
-
-![1 1-function-essence-of-programming](https://github.com/nogibjj/python-ruff-template/assets/58792/f7f33cd3-cff5-4014-98ea-09b6a29c7557)
-
-
-
+To view the report, open the `analysis_report.md` in a markdown viewer or a code editor with markdown preview.
