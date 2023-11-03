@@ -33,8 +33,8 @@ def read_dataset(spark, dataset_path):
         StructField("Model", IntegerType(), True),  
         StructField("Origin", StringType(), True),  
     ])
-    dataset = spark.read.option("header", "true").option("sep", ";").schema(car_schema).csv(dataset_path)
-    # Replace 'append_to_report' with the actual function you use to log or append to a report
+    dataset = spark.read.option("header", 
+                                "true").option("sep", ";").schema(car_schema).csv(dataset_path)
     append_to_report("Data Loading", dataset.limit(10).toPandas().to_markdown()) 
     return dataset
 
