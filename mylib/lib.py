@@ -40,9 +40,9 @@ def read_dataset(spark, dataset_path):
 
 def transform_origin(dataset):
     origin_conditions = [
-        (col("ManufactureRegion") == "US"),
-        (col("ManufactureRegion") == "Europe"),
-        (col("ManufactureRegion") == "Japan")
+        (col("Origin") == "US"),
+        (col("Origin") == "Europe"),
+        (col("Origin") == "Japan")
     ]
     origin_categories = ["Domestic", "European", "Japanese"]
     transformed_dataset = dataset.withColumn("RegionCategory", when(
