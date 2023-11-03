@@ -24,10 +24,12 @@ def test_data_loading(spark_session: SparkSession):
     car_df = read_dataset(spark_session, data_path)
     assert car_df is not None and car_df.count() > 0
 
+
 def test_data_describe(spark_session: SparkSession):
     car_df = read_dataset(spark_session, "data/cars.csv")
     description_data = describe(car_df)
     assert description_data is not None
+
 
 def test_data_transform(spark_session: SparkSession):
     car_df = read_dataset(spark_session, "data/cars.csv")
