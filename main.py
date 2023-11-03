@@ -4,6 +4,7 @@ Main application entry point for PySpark data processing
 from mylib.lib import (
     initiate_spark_session,
     read_dataset,
+    describe,
     transform_origin,
     append_to_report,
 )
@@ -14,9 +15,9 @@ def run_data_analysis():
 
     data_file_path = "data/cars.csv"
     car_data = read_dataset(spark, data_file_path)
-
+    description_data = describe(car_data)
+    description_data.createOrReplaceTempView("description_view")
     transformed_data = transform_origin(car_data)
-
     transformed_data.createOrReplaceTempView("car_data_view")
     query_result = spark.sql(
         """
